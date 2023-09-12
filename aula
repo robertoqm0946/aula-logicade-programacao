@@ -1,0 +1,31 @@
+function saldoVitoria(vitoria, derrota) {
+    const winRate = vitoria - derrota;
+    return winRate;
+}
+
+const winRate = saldoVitoria(
+    Math.floor(Math.random() * 101) + 1,
+    Math.floor(Math.random() * 101) + 1
+);
+
+function avaliadorDeRank(winRate) {
+    if (winRate < 10) {
+        return "Ferro";
+    } else if (winRate >= 11 && winRate <= 20) {
+        return "Bronze";
+    } else if (winRate >= 21 && winRate <= 50) {
+        return "Prata";
+    } else if (winRate >= 51 && winRate <= 80) {
+        return "Ouro";
+    } else if (winRate >= 81 && winRate <= 90) {
+        return "Diamante";
+    } else if (winRate >= 91 && winRate <= 100) {
+        return "Lendário";
+    } else if (winRate >= 101) {
+        return "Imortal";
+    }
+}
+
+const rank = avaliadorDeRank(winRate);
+
+console.log(`O Herói tem saldo de ${winRate} e está no nível de ${rank}`);
